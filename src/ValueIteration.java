@@ -3,13 +3,13 @@ public class ValueIteration {
 	private static double[][] grid = new double[7][7];
 	private static double gamma = 1;
 	private static double epsilon = .001;
-	private static int maxIters = 1000;
+	private static int maxIters = 100;
 	
 	public static double getReward(int i, int j) {
 		if(i == 3 && j == 6) {
-			return 0;
+			return 10;
 		} else {
-			return -1;
+			return 0;
 		}
 	}
 	
