@@ -69,7 +69,7 @@ public class ValueIteration {
 			if (oldGrid[i][j] > max) {
 				max = oldGrid[i][j];
 			}
-		} else if ((j > 2 || j < 6) && wind == 1) {
+		} else if ((j > 2 && j < 6) && wind == 1) {
 
 			if (i > 1) {
 				// check N
@@ -113,7 +113,7 @@ public class ValueIteration {
 				max = oldGrid[i][j - 1];
 			}
 
-		} else if ((j > 2 || j < 6) && wind == 2) {
+		} else if ((j > 2 && j < 6) && wind == 2) {
 
 			if (i > 2) {
 				// check N
@@ -158,6 +158,34 @@ public class ValueIteration {
 					max = oldGrid[i - 1][j - 1];
 				}
 			}
+			if(i == 0) {
+				//check E
+				if (oldGrid[i][j + 1] > max) {
+					max = oldGrid[i][j + 1];
+				}				
+				//check W
+				if (oldGrid[i][j - 1] > max) {
+					max = oldGrid[i][j - 1];
+				}	
+				//check current
+				if (oldGrid[i][j] > max) {
+					max = oldGrid[i][j];
+				}			
+			}
+			if(j == 4 && i == 1) {
+				//check N
+				if (oldGrid[i - 1][j] > max) {
+					max = oldGrid[i - 1][j];
+				}
+				//check NE
+				if (oldGrid[i - 1][j + 1] > max) {
+					max = oldGrid[i - 1][j + 1];
+				}
+				//check NW
+				if (oldGrid[i - 1][j - 1] > max) {
+					max = oldGrid[i - 1][j - 1];
+				}
+			}
 		}
 
 		return max;
@@ -196,7 +224,7 @@ public class ValueIteration {
 
 	public static void main(String[] args) {
 		//input wind=0 for Case 1 (no wind), wind=1 for Case 2 (light wind), and wind=2 for Case 3 (strong wind)
-		int wind = 0;
+		int wind = 2;
 		findValueFunction(wind);
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 7; j++) {
